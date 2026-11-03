@@ -1,0 +1,6 @@
+{
+  "name": "HELLGOD – Ultimate All-in-One Server & AI Platform",
+  "description": "Futuristic cyberpunk self-hostable server management platform, AI assistant, file manager, database, and Android control center.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

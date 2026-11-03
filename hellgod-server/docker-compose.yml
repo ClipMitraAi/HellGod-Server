@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  hellgod-core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hellgod_server
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+      - "8000:8000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - JWT_SECRET=hellgod_super_secret_jwt_key_2026
+    volumes:
+      - hellgod-storage:/app/hellgod-storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  hellgod-storage:
+    driver: local
